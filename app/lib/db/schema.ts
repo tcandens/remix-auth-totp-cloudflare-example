@@ -1,5 +1,6 @@
 import { sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { nanoid } from 'nanoid'
 
 export const users = sqliteTable("users", {
   id: integer("id").primaryKey(),
@@ -12,3 +13,12 @@ export const users = sqliteTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 export type SessionUser = Pick<User, "id" | "email">;
+
+export const messages = sqliteTable("messages", {
+  id: text('id').primaryKey().$defaultFn(() => nanoid()),
+  content: text("content").notNull(),
+  agent: text("agent").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .notNull()
+    .default(sql`(unixepoch())`),
+})
