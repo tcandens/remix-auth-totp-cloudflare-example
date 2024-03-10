@@ -13,8 +13,14 @@ export const onRequest = async ({ request }: { request: Request }) => {
 
   server.accept()
   server.addEventListener('message', (evt) => {
-    console.log(evt)
+    if (evt.data === 'ping') {
+      server.send('pong')
+    }
   })
+
+  setInterval(() => {
+    server.send(Date.now().toString())
+  }, 1000)
 
   return new Response(null, {
     status: 101,
