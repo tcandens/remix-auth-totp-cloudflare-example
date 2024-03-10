@@ -6,7 +6,9 @@
   "scripts": {
     "build": "remix vite:build",
     "deploy": "wrangler pages deploy ./build/client",
-    "dev": "remix vite:dev",
+    "dev:client": "remix vite:dev",
+    "dev:functions": "wrangler pages dev functions",
+    "dev": "concurrently \"npm:dev:*\"",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "wrangler pages dev ./build/client --compatibility-date=2024-02-03 --compatibility-flags=nodejs_compat",
     "typecheck": "tsc",
@@ -74,6 +76,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "autoprefixer": "^10.4.17",
     "better-sqlite3": "^9.4.0",
+    "concurrently": "^8.2.2",
     "drizzle-kit": "^0.20.14",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^9.0.0",

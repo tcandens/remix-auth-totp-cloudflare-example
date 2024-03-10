@@ -11,4 +11,10 @@ export default defineConfig({
     remix(), 
     tsconfigPaths()
   ],
+  server: {
+    port: 3000,
+    hmr: {
+      port: 3001
+    }
+  }
 });

@@ -136,7 +136,7 @@ export function Counter({ sessionId }: { sessionId: number }) {
       </fetcher.Form>
 
       <ul>
-        {messages.length && messages.map((m) => (
+        {messages.length > 0 && messages.map((m) => (
           <li 
             key={m.id}
             className="flex flex-row justify-between"
