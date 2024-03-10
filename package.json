@@ -7,7 +7,7 @@
     "build": "remix vite:build",
     "deploy": "wrangler pages deploy ./build/client",
     "dev:client": "remix vite:dev",
-    "dev:functions": "wrangler pages dev functions",
+    "dev:functions": "wrangler dev --test-scheduled _worker.js",
     "dev": "concurrently \"npm:dev:*\"",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "wrangler pages dev ./build/client --compatibility-date=2024-02-03 --compatibility-flags=nodejs_compat",
