@@ -18,6 +18,7 @@ export const onRequest = async (ctx) => {
       body: ctx.request.body,
       credentials: ctx.request.credentials,
       signal: ctx.request.signal,
+      redirect: ctx.request.redirect,
     });
   }
 }

@@ -24,8 +24,6 @@ export async function action({ request, context }: ActionFunctionArgs) {
   const { db, auth: { authenticator }} = createServices(context)
   const sessionUser = await authenticator.isAuthenticated(request)
 
-  console.log('method', request.method)
-
   switch (request.method.toLowerCase()) {
     case 'post': {
       const formdata = await request.formData()

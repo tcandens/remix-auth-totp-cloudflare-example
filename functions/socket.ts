@@ -1,4 +1,6 @@
-export const onRequest = async ({ request }: { request: Request }) => {
+import { type PagesFunction } from '@cloudflare/workers-types'
+
+export const onRequest: PagesFunction = async ({ request }) => {
   const upgradeHeader = request.headers.get('Upgrade')
 
   if (!upgradeHeader || upgradeHeader !== 'websocket') {

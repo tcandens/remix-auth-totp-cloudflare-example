@@ -67,10 +67,16 @@
 }
 
 @layer base {
+  [data-theme="dark"] {
+    filter: invert(0.95) hue-rotate(60deg);
+  }
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html, body {
+    @apply min-h-screen w-full overflow-x-hidden;
   }
 }

@@ -14,10 +14,9 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
   const {
     auth: { authenticator },
   } = createServices(context);
-  const sessionUser = await authenticator.isAuthenticated(request, {
+  await authenticator.isAuthenticated(request, {
     failureRedirect: "/login",
   });
-  console.log("account: loader:", { sessionUser, authenticator });
   return null;
 }
 

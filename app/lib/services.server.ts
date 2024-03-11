@@ -19,12 +19,10 @@ export interface ServicesContext {
 }
 
 export function createServices(context: AppLoadContext) {
-  console.log("createServices");
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#smart_self-overwriting_lazy_getters
   const servicesContext: ServicesContext = {
     env: context.cloudflare.env,
     get db() {
-      console.log("get db() self-overwriting");
       // @ts-expect-error The operand of a 'delete' operator must be optional. ts(2790)
       delete this.db;
       this.db = drizzle(context.cloudflare.env.D1, {
@@ -34,7 +32,6 @@ export function createServices(context: AppLoadContext) {
       return this.db;
     },
     get auth() {
-      console.log("get auth() self-overwriting");
       // @ts-expect-error The operand of a 'delete' operator must be optional. ts(2790)
       delete this.auth;
       this.auth = createAuth(servicesContext);
