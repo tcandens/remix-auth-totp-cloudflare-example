@@ -41,6 +41,7 @@ export function SocketRoute() {
 
 export default function Route() {
   const { dehydratedState } = useLoaderData<typeof loader>()
+
   return (
     <HydrationBoundary
       state={dehydratedState}

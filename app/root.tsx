@@ -7,7 +7,8 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare'
+import { type LoaderFunctionArgs, type MetaFunction, json } from '@remix-run/cloudflare'
+import { Toaster } from '~/components/ui/sonner'
 import { useState, useMemo } from 'react'
 import { Nav } from '~/components/nav'
 import { createServices } from '~/lib/services.server'
@@ -16,13 +17,10 @@ import "./root.css";
 
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const { 
-    // db,
     auth: { authenticator } 
   } = createServices(context)
 
-  const sessionUser = await authenticator.isAuthenticated(request, {
-    failureRedirect: '/login'
-  })
+  const sessionUser = await authenticator.isAuthenticated(request)
 
   const theme = await getThemeFromCookies(request)
 
@@ -31,6 +29,10 @@ export const loader = async ({ request, context }: LoaderFunctionArgs) => {
     theme,
   })
 }
+
+export const meta: MetaFunction = () => ([
+  { title: 'Remix Auth TOTP Cloudflare Example' }
+])
 
 export default function App() {
   const [queryClient] = useState(
@@ -69,6 +71,7 @@ export default function App() {
             />
           </div>
         </QueryClientProvider>
+        <Toaster />
         <ScrollRestoration />
         <Scripts />
       </body>

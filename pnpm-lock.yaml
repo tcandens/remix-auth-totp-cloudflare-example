@@ -62,6 +62,9 @@ dependencies:
   drizzle-orm:
     specifier: ^0.29.3
     version: 0.29.3(@cloudflare/workers-types@4.20240222.0)(@types/react@18.2.51)(better-sqlite3@9.4.0)(react@18.3.0-canary-01ab35a9a-20240228)
+  input-otp:
+    specifier: ^1.0.1
+    version: 1.0.1(react-dom@18.3.0-canary-01ab35a9a-20240228)(react@18.3.0-canary-01ab35a9a-20240228)
   isbot:
     specifier: ^4.1.0
     version: 4.4.0
@@ -5729,6 +5732,16 @@ packages:
   /inline-style-parser@0.1.1:
     resolution: {integrity: sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==}
     dev: true
+
+  /input-otp@1.0.1(react-dom@18.3.0-canary-01ab35a9a-20240228)(react@18.3.0-canary-01ab35a9a-20240228):
+    resolution: {integrity: sha512-AFMGRsOwXcH7koO+8nnVcJFYEe92tNmRlb2TUKbj9Bpdyc44GaS3LfJam3MdoXQv1jejpMS0+fxJFSCsEDHd9A==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      react: 18.3.0-canary-01ab35a9a-20240228
+      react-dom: 18.3.0-canary-01ab35a9a-20240228(react@18.3.0-canary-01ab35a9a-20240228)
+    dev: false
 
   /internal-slot@1.0.6:
     resolution: {integrity: sha512-Xj6dv+PsbtwyPpEflsejS+oIZxmMlV44zAhG479uYu89MsjcYOhCFnNyKrkJrihbsiasQyY0afoCl/9BLR65bg==}

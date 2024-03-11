@@ -9,6 +9,7 @@ import { H3, P, Small } from "~/components/typography";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
+import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '~/components/ui/input-otp'
 import { createServices } from "~/lib/services.server";
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
@@ -54,7 +55,29 @@ export default function Route() {
       <P>We have sent you a magic link email.</P>
       <Form method="POST" className="mt-2 space-y-2">
         <Label htmlFor="code">Code</Label>
-        <Input type="text" name="code" id="code" />
+        <InputOTP
+          maxLength={6}
+          name="code"
+          id="code"
+          onChange={console.log}
+          render={({ slots }) => (
+            <>
+              <InputOTPGroup>
+                {slots.slice(0, 3).map((slot, index) => (
+                  <InputOTPSlot key={index} {...slot} />
+                ))}
+              </InputOTPGroup>
+              <InputOTPSeparator />
+              <InputOTPGroup>
+                {slots.slice(3).map((slot, index) => (
+                  <InputOTPSlot key={index + 3} {...slot} />
+                ))}
+              </InputOTPGroup>
+            </>
+          )}
+        >
+        </InputOTP>
+        {/* <Input type="text" name="code" id="code" /> */}
         <Small className="mt-1 text-destructive">{authError?.message}</Small>
         <Button type="submit">Continue</Button>
       </Form>

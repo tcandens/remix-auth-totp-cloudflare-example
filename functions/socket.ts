@@ -15,13 +15,28 @@ export const onRequest: PagesFunction = async ({ request }) => {
 
   server.accept()
   server.addEventListener('message', (evt) => {
-    if (evt.data === 'ping') {
-      server.send('pong')
+
+    try {
+      const data = JSON.parse(evt.data)
+      switch (data.type) {
+        case 'ping':
+          server.send(JSON.stringify({ type: 'pong' }))
+          break;
+        default:
+          console.log('unknown event', data)
+      }
+    } catch (e) {
+      console.error(e)
     }
+
   })
 
   setInterval(() => {
-    server.send(Date.now().toString())
+    const event = {
+      type: 'time',
+      payload: Date.now().toString()
+    }
+    server.send(JSON.stringify(event))
   }, 1000)
 
   return new Response(null, {
