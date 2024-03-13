@@ -59,7 +59,6 @@ export default function Route() {
           maxLength={6}
           name="code"
           id="code"
-          onChange={console.log}
           render={({ slots }) => (
             <>
               <InputOTPGroup>

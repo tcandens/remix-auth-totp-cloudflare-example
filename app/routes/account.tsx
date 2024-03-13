@@ -15,7 +15,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
     auth: { authenticator },
   } = createServices(context);
   await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: "/auth/login",
   });
   return null;
 }
@@ -26,7 +26,7 @@ export async function action({ request, context }: ActionFunctionArgs) {
     auth: { authenticator, getSession, destroySession },
   } = createServices(context);
   const sessionUser = await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: "/auth/login",
   });
 
   // Delete user.
@@ -52,7 +52,7 @@ export default function Route() {
             Remove account
           </Button>
         </Form>
-        <Form method="POST" action="/logout">
+        <Form method="POST" action="/auth/logout">
           <Button type="submit" className="w-full">
             Log out
           </Button>

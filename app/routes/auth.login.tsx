@@ -39,7 +39,7 @@ export async function action({ request, context }: ActionFunctionArgs) {
   await authenticator.authenticate("TOTP", request, {
     // The `successRedirect` route will be used to verify the TOTP code.
     // This could be the current pathname or any other route that renders the verification form.
-    successRedirect: "/verify",
+    successRedirect: "/auth/verify",
 
     // The `failureRedirect` route will be used to render any possible error.
     failureRedirect: new URL(request.url).pathname,

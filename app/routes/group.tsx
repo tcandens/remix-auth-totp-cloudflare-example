@@ -11,7 +11,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
     auth: { authenticator } 
   } = createServices(context)
   const sessionUser = await authenticator.isAuthenticated(request, {
-    failureRedirect: '/login'
+    failureRedirect: '/auth/login'
   })
 
   const queryClient = new QueryClient()

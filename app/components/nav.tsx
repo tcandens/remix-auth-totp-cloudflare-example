@@ -14,13 +14,16 @@ export function Nav({ currentTheme, isAuthenticated }: { currentTheme: string, i
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
-        {isAuthenticated && (
+        {isAuthenticated ? (
           <>
             <li>
               <NavLink to="/account">Account</NavLink>
             </li>
+            <li>
+              <NavLink to="/committee">Committees</NavLink>
+            </li>
           </>
-        ) && (
+        ) : (
           <>
             <li>
               <NavLink to="/login">Login</NavLink>

@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { Large, Muted } from "~/components/typography";
+import { Large } from "~/components/typography";
 import { Button } from "~/components/ui/button";
 
 export default function Index() {
@@ -8,9 +8,8 @@ export default function Index() {
       <Large className="text-balance">
         Robust, easy-to-implement TOTP for email authentication
       </Large>
-      <Muted>Designed for Remix Auth</Muted>
       <Button asChild className="self-center">
-        <Link to="/login">Authorize</Link>
+        <Link to="/auth/login">Authorize</Link>
       </Button>
     </div>
   );
