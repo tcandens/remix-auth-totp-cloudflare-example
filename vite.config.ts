@@ -8,8 +8,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     remixCloudflareDevProxy(), 
+    tsconfigPaths(),
     remix(), 
-    tsconfigPaths()
   ],
   server: {
     port: 3000,
