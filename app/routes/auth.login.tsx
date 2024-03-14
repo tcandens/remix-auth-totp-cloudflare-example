@@ -44,6 +44,8 @@ export async function action({ request, context }: ActionFunctionArgs) {
     // The `failureRedirect` route will be used to render any possible error.
     failureRedirect: new URL(request.url).pathname,
   });
+
+  return null
 }
 
 export default function Route() {

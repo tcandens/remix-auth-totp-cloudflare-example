@@ -7,7 +7,6 @@ import {
 import { Form, useLoaderData } from "@remix-run/react";
 import { H3, P, Small } from "~/components/typography";
 import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '~/components/ui/input-otp'
 import { createServices } from "~/lib/services.server";
@@ -76,7 +75,6 @@ export default function Route() {
           )}
         >
         </InputOTP>
-        {/* <Input type="text" name="code" id="code" /> */}
         <Small className="mt-1 text-destructive">{authError?.message}</Small>
         <Button type="submit">Continue</Button>
       </Form>
