@@ -106,6 +106,9 @@
     "overrides": {
       "react-dom": "18.3.0-canary-01ab35a9a-20240228",
       "react": "18.3.0-canary-01ab35a9a-20240228"
+    },
+    "patchedDependencies": {
+      "wrangler@3.30.0": "patches/wrangler@3.30.0.patch"
     }
   },
   "engines": {

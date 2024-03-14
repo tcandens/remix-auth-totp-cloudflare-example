@@ -1,0 +1,26 @@
+diff --git a/templates/pages-template-plugin.ts b/templates/pages-template-plugin.ts
+index 3b99ea2a82d18d3cbbe713af437dc53c33bd1273..5776a92e4b23478469dac939fb1b567ae9fac70f 100644
+--- a/templates/pages-template-plugin.ts
++++ b/templates/pages-template-plugin.ts
+@@ -146,7 +146,7 @@ export default function (pluginArgs: unknown) {
+ 			if (result.done === false) {
+ 				const { handler, params, path } = result.value;
+ 				const context = {
+-					request: new Request(request.clone()),
++					request,
+ 					functionPath: workerContext.functionPath + path,
+ 					next: pluginNext,
+ 					params,
+diff --git a/templates/pages-template-worker.ts b/templates/pages-template-worker.ts
+index 67e6cee9ac7cbac5bf88f8dc75f70be3a010c4fb..31b0527e1e16e05db19c0702735a9fa923bd2e92 100644
+--- a/templates/pages-template-worker.ts
++++ b/templates/pages-template-worker.ts
+@@ -137,7 +137,7 @@ export default {
+ 			if (result.done === false) {
+ 				const { handler, params, path } = result.value;
+ 				const context = {
+-					request: new Request(request.clone()),
++					request,
+ 					functionPath: path,
+ 					next,
+ 					params,

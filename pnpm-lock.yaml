@@ -4,6 +4,11 @@ overrides:
   react-dom: 18.3.0-canary-01ab35a9a-20240228
   react: 18.3.0-canary-01ab35a9a-20240228
 
+patchedDependencies:
+  wrangler@3.30.0:
+    hash: lgevpcrwuymjts6warheygjihq
+    path: patches/wrangler@3.30.0.patch
+
 dependencies:
   '@conform-to/react':
     specifier: ^1.0.0
@@ -204,7 +209,7 @@ devDependencies:
     version: 4.3.1(typescript@5.3.3)(vite@5.1.4)
   wrangler:
     specifier: ^3.30.0
-    version: 3.30.0(@cloudflare/workers-types@4.20240222.0)
+    version: 3.30.0(patch_hash=lgevpcrwuymjts6warheygjihq)(@cloudflare/workers-types@4.20240222.0)
   zx:
     specifier: ^7.2.3
     version: 7.2.3
@@ -2709,7 +2714,7 @@ packages:
       tsconfig-paths: 4.2.0
       typescript: 5.3.3
       vite: 5.1.4
-      wrangler: 3.30.0(@cloudflare/workers-types@4.20240222.0)
+      wrangler: 3.30.0(patch_hash=lgevpcrwuymjts6warheygjihq)(@cloudflare/workers-types@4.20240222.0)
       ws: 7.5.9
     transitivePeerDependencies:
       - '@types/node'
@@ -9607,7 +9612,7 @@ packages:
       '@cloudflare/workerd-windows-64': 1.20240223.1
     dev: true
 
-  /wrangler@3.30.0(@cloudflare/workers-types@4.20240222.0):
+  /wrangler@3.30.0(patch_hash=lgevpcrwuymjts6warheygjihq)(@cloudflare/workers-types@4.20240222.0):
     resolution: {integrity: sha512-td7tDjdONT8Dz7GJE9+98cR9aZJyxShToXXIfaJrAa6sxJCLJqsLOgqKIal6Z6neNqQCvk5e9ThBWyhiAjABXg==}
     engines: {node: '>=16.17.0'}
     hasBin: true
@@ -9639,6 +9644,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+    patched: true
 
   /wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
